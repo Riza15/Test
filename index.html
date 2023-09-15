@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+table {
+    width: 60%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    border: 2px solid #333;
+}
+
+td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+    </style>
+</head>
+
+<body>
+    <div style="text-align: center;">
+        <h1>FORMULIR PENDAFTARAN</h1>
+        <h2>LOMBA VOLLY</h2>
+        <h3>ANTAR RT RW</h3>
+
+        <table>
+        <form action="test.php" method="post">
+                <tr>
+                    <td>NAMA TIM</td>
+                    <td>:</td>
+                    <td><input type="text" name="nama" placeholder="Masukkan nama timmu" style="width: 385px;" pattern="^[^\d]*$" title="Teks tidak boleh mengandung angka" required></td>
+                </tr>
+
+                <tr>
+                    <td>JUMLAH ANGGOTA</td>
+                    <td>:</td>
+                    <td><input type="number" name="jumlah_anggota" placeholder="Masukkan jumlah anggota timmu" style="width: 385px;" pattern="^\d*$" title="Harus berisi angka saja" required></td>
+                </tr>
+
+                <tr>
+                    <td>ASAL</td>
+                    <td>:</td>
+                    <td>RT:<input type="number" name="RT" placeholder="00" pattern="^\d*$" title="Harus berisi angka saja" required> 
+                    RW:<input type="number" name="RW" placeholder="00" pattern="^\d*$" title="Harus berisi angka saja" required></td>
+                </tr>
+
+                <tr>
+                    <td>NAMA KETUA TIM</td>
+                    <td>:</td>
+                    <td><input type="text" name="nama_ketua_tim" placeholder="Masukkan nama ketua timmu" style="width: 385px;" pattern="^[^\d]*$" title="Teks tidak boleh mengandung angka" required></td>
+                </tr>
+
+                <tr>
+                    <td>NO HP KETUA TIM</td>
+                    <td>:</td>
+                    <td><input type="tel" name="no_hp_ketua_tim" placeholder="Masukkan no hp ketua timmu" style="width: 385px;" pattern="^\d{1,11}$" title="No HP harus berisi maksimal 11 karakter angka" required></td>
+                </tr>
+
+                <tr>
+                    <td>UPLOAD FOTO KTP KETUA TIM</td>
+                    <td>:</td>
+                    <td><input type="file" name="upload_foto_ktp_ketua_tim" id="photo" accept="image/*" required></td>
+                </tr>
+
+                <tr>
+                    <td>TANGGAL PENDAFTARAN</td>
+                    <td>:</td>
+                    <td><input type="date" name="tanggal_pendaftaran" style="width: 385px;" required></td>
+                </tr>
+
+                <tr>
+                    <td>TIM</td>
+                    <td>:</td>
+                    <td>
+                        <input type="radio" name="editList" id="PUTRA" value="PUTRA" required/>
+                        <label for="PUTRA">PUTRA</label>
+                        <input type="radio" name="editList" id="PUTRI" value="PUTRI" required/>
+                        <label for="PUTRI">PUTRI</label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="3" style="text-align: center;">
+                        <input type="submit" name="submit" value="DAFTAR">
+                    </td>
+                </tr>
+            </form>
+        </table>
+
+        <script>
+            document.getElementById('photo').addEventListener('change', function (e) {
+                let file = e.target.files[0];
+                if (file.size > 2 * 1024 * 1024) {
+                    alert('Ukuran foto tidak boleh lebih dari 2MB.');
+                    e.target.value = '';
+                }
+            });
+        </script>
+    </div>
+</body>
+
+</html>
